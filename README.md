@@ -182,29 +182,6 @@ Deletes `bookId = 11` from the database on `http://localhost:3000/books/11/` and
 
 ---
 
-## Viva Questions & Answers
-
-### Q1. Why await the database call?
-> **Answer:** Database read and write operations are I/O-bound asynchronous processes. If we do not `await` the database operation, JavaScript continues synchronous execution immediately, passing an unresolved `Promise` rather than the retrieved data to the client. This results in empty responses, race conditions, or unhandled promise errors. `await` halts function execution until the database query resolves and returns the data.
-
-### Q2. What is SQL injection and how do placeholders prevent it?
-> **Answer:** SQL injection occurs when untrusted user input is directly concatenated into an SQL query string, allowing an attacker to inject arbitrary SQL statements (e.g., `' OR '1'='1' --`). Placeholders (`?`) prevent this because the query structure is pre-compiled by the database engine. The parameters are passed separately and treated strictly as literal data values, automatically escaping special characters.
-
-### Q3. When is PUT used instead of POST?
-> **Answer:**
-> - **POST** is used to create a new resource. It is **non-idempotent** (sending the same request repeatedly creates multiple independent records with new IDs).
-> - **PUT** is used to update or replace an existing resource at a known target URI (e.g., `/books/:bookId/`). It is **idempotent** (sending the exact same request multiple times leaves the server in the identical final state).
-
-### Q4. What is the difference between `db.all()`, `db.get()`, and `db.run()`?
-> **Answer:**
-> - `db.all()`: Executes a `SELECT` query and returns all matching rows as an array of objects.
-> - `db.get()`: Executes a `SELECT` query and returns only the first matching row as a single object (or `undefined` if none match).
-> - `db.run()`: Executes mutating statements (`INSERT`, `UPDATE`, `DELETE`) and returns execution metadata (e.g., `lastID`, `changes`).
-
-### Q5. Why is `initializeDBAndServer()` structured to start the Express server only after the DB connection succeeds?
-> **Answer:** If `app.listen()` begins accepting HTTP requests before the database connection is established, any incoming request would encounter a `null` database instance, causing the server process to crash. Encapsulating both inside `initializeDBAndServer()` ensures the server only accepts traffic once the database is fully open and ready.
-
----
 
 ## Notes: Problems Faced and How They Were Solved
 
