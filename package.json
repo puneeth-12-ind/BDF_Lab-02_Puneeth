@@ -1,28 +1,31 @@
 {
   "name": "lab-02",
   "version": "1.0.0",
-  "description": "Lab 2: SQLite database and CRUD routes - Backend Development Fundamentals",
+  "description": "Lab 2: SQLite database and CRUD routes",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "dev": "nodemon index.js",
-    "seed": "node seed.js",
-    "test": "node test_api.js"
+    "dev": "nodemon index.js"
+  },
+  "engines": {
+    "node": ">=18.0.0"
   },
   "keywords": [
+    "express",
     "sqlite",
     "sqlite3",
-    "express",
     "crud",
-    "rest-api"
+    "backend"
   ],
-  "author": "K PUNEETH SAI (252U1R1204)",
+  "author": "K PUNEETH SAI",
   "license": "ISC",
   "type": "commonjs",
   "dependencies": {
     "express": "^5.3.0",
-    "nodemon": "^3.1.14",
     "sqlite": "^5.1.1",
     "sqlite3": "^6.0.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14"
   }
 }
