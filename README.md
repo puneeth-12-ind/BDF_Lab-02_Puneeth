@@ -151,34 +151,34 @@ node init-db.js
 
 ## Screenshots of the 5 Working Endpoints
 
-*The five screenshots below show Postman responses from the **live Vercel deployment** at `https://bdf-lab-02-puneeth-b7sp.vercel.app/`.*
+*The five screenshots below show real Postman responses captured by running the server locally at ``http://localhost:3000/``.*
 
-### 1. GET `/books/` — Retrieve All Books
-Retrieves all 10 books in JSON format from the live endpoint `https://bdf-lab-02-puneeth-b7sp.vercel.app/books/` with status code `200 OK`.
+### 1. GET ``/books/`` - Retrieve All Books
+Retrieves all 10 books in JSON format from ``http://localhost:3000/books/`` with status code ``200 OK``.
 ![GET All Books](screenshots/01_get_all_books.png)
 
 ---
 
-### 2. GET `/books/:bookId/` — Retrieve Single Book
-Retrieves the record for `bookId = 1` (*The Great Gatsby*) from `https://bdf-lab-02-puneeth-b7sp.vercel.app/books/1/` with status code `200 OK`.
+### 2. GET ``/books/:bookId/`` - Retrieve Single Book
+Retrieves the record for ``bookId = 1`` (*The Great Gatsby*) from ``http://localhost:3000/books/1/`` with status code ``200 OK``.
 ![GET Single Book](screenshots/02_get_single_book.png)
 
 ---
 
-### 3. POST `/books/` — Add New Book
-Inserts a new book into the live database via `https://bdf-lab-02-puneeth-b7sp.vercel.app/books/` using parameterized queries and returns status code `201 Created` with the newly assigned `bookId: 11`.
+### 3. POST ``/books/`` - Add New Book
+Inserts a new book into ``books.db`` via ``http://localhost:3000/books/`` using parameterized queries and returns status code ``201 Created`` with the newly assigned ``bookId: 11``.
 ![POST Add Book](screenshots/03_post_add_book.png)
 
 ---
 
-### 4. PUT `/books/:bookId/` — Update Book
-Modifies book details for `bookId = 1` via `https://bdf-lab-02-puneeth-b7sp.vercel.app/books/1/` using parameterized queries and returns status code `200 OK` with message `'Book Updated Successfully'`.
+### 4. PUT ``/books/:bookId/`` - Update Book
+Modifies book details for ``bookId = 1`` via ``http://localhost:3000/books/1/`` using parameterized queries and returns status code ``200 OK`` with message ``Book Updated Successfully``.
 ![PUT Update Book](screenshots/04_put_update_book.png)
 
 ---
 
-### 5. DELETE `/books/:bookId/` — Remove Book
-Deletes `bookId = 11` via `https://bdf-lab-02-puneeth-b7sp.vercel.app/books/11/` and returns status code `200 OK` with message `'Book Deleted Successfully'`.
+### 5. DELETE ``/books/:bookId/`` - Remove Book
+Deletes ``bookId = 11`` from ``http://localhost:3000/books/11/`` and returns status code ``200 OK`` with message ``Book Deleted Successfully``.
 ![DELETE Book](screenshots/05_delete_book.png)
 
 ---
