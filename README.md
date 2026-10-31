@@ -35,20 +35,20 @@ CREATE TABLE book (
 );
 ```
 
-The database is seeded with 10 initial book records covering computer science classics and software engineering reference books:
+The database is seeded with 10 initial book records:
 
 | id | title | author | price (₹) | pages |
 |---|---|---|---|---|
-| 1 | Clean Code | Robert C. Martin | 650 | 464 |
-| 2 | The Pragmatic Programmer | Andrew Hunt | 720 | 352 |
-| 3 | Introduction to Algorithms | Thomas H. Cormen | 1200 | 1312 |
-| 4 | JavaScript: The Good Parts | Douglas Crockford | 450 | 176 |
-| 5 | Design Patterns | Erich Gamma | 850 | 395 |
-| 6 | You Don't Know JS Yet | Kyle Simpson | 500 | 142 |
-| 7 | Refactoring | Martin Fowler | 780 | 448 |
-| 8 | Cracking the Coding Interview | Gayle Laakmann McDowell | 900 | 687 |
-| 9 | Head First Design Patterns | Eric Freeman | 699 | 694 |
-| 10 | Database System Concepts | Abraham Silberschatz | 1100 | 1376 |
+| 1 | The Great Gatsby | F. Scott Fitzgerald | 499 | 180 |
+| 2 | To Kill a Mockingbird | Harper Lee | 399 | 281 |
+| 3 | 1984 | George Orwell | 299 | 328 |
+| 4 | Pride and Prejudice | Jane Austen | 249 | 279 |
+| 5 | The Catcher in the Rye | J.D. Salinger | 350 | 214 |
+| 6 | The Hobbit | J.R.R. Tolkien | 599 | 310 |
+| 7 | Crime and Punishment | Fyodor Dostoevsky | 450 | 671 |
+| 8 | The Alchemist | Paulo Coelho | 320 | 208 |
+| 9 | Brave New World | Aldous Huxley | 380 | 268 |
+| 10 | War and Peace | Leo Tolstoy | 750 | 1225 |
 
 ---
 
@@ -117,7 +117,7 @@ node init-db.js
 
 ---
 
-## --> Screenshots of Working Endpoints
+## --> Screenshots of Working Endpoints (Captured on Laptop)
 
 ### 1. GET `/books/` — Retrieve All Books
 Retrieves all 10 books in JSON format with status code `200 OK`.
@@ -156,7 +156,7 @@ Demonstrates error handling when requesting a non-existent book ID, returning st
 ---
 
 ### 7. SQLite CLI & Database Verification
-Terminal inspection using the SQLite CLI verifying the table schema, constraints, and rows in `books.db`.
+Terminal inspection using the SQLite CLI on laptop verifying table schema, constraints, and rows in `books.db`.
 ![SQLite CLI Verification](screenshots/07_sqlite_cli_view.png)
 
 ---

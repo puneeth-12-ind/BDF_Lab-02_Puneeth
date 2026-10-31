@@ -20,16 +20,16 @@ let db = null;
 
 // Initial book seed for in-memory fallback (used if native sqlite3 binary is restricted on serverless platforms)
 let inMemoryBooks = [
-  { id: 1, title: 'Clean Code', author: 'Robert C. Martin', price: 650, pages: 464 },
-  { id: 2, title: 'The Pragmatic Programmer', author: 'Andrew Hunt', price: 720, pages: 352 },
-  { id: 3, title: 'Introduction to Algorithms', author: 'Thomas H. Cormen', price: 1200, pages: 1312 },
-  { id: 4, title: 'JavaScript: The Good Parts', author: 'Douglas Crockford', price: 450, pages: 176 },
-  { id: 5, title: 'Design Patterns', author: 'Erich Gamma', price: 850, pages: 395 },
-  { id: 6, title: "You Don't Know JS Yet", author: 'Kyle Simpson', price: 500, pages: 142 },
-  { id: 7, title: 'Refactoring', author: 'Martin Fowler', price: 780, pages: 448 },
-  { id: 8, title: 'Cracking the Coding Interview', author: 'Gayle Laakmann McDowell', price: 900, pages: 687 },
-  { id: 9, title: 'Head First Design Patterns', author: 'Eric Freeman', price: 699, pages: 694 },
-  { id: 10, title: 'Database System Concepts', author: 'Abraham Silberschatz', price: 1100, pages: 1376 }
+  { id: 1, title: 'The Great Gatsby', author: 'F. Scott Fitzgerald', price: 499, pages: 180 },
+  { id: 2, title: 'To Kill a Mockingbird', author: 'Harper Lee', price: 399, pages: 281 },
+  { id: 3, title: '1984', author: 'George Orwell', price: 299, pages: 328 },
+  { id: 4, title: 'Pride and Prejudice', author: 'Jane Austen', price: 249, pages: 279 },
+  { id: 5, title: 'The Catcher in the Rye', author: 'J.D. Salinger', price: 350, pages: 214 },
+  { id: 6, title: 'The Hobbit', author: 'J.R.R. Tolkien', price: 599, pages: 310 },
+  { id: 7, title: 'Crime and Punishment', author: 'Fyodor Dostoevsky', price: 450, pages: 671 },
+  { id: 8, title: 'The Alchemist', author: 'Paulo Coelho', price: 320, pages: 208 },
+  { id: 9, title: 'Brave New World', author: 'Aldous Huxley', price: 380, pages: 268 },
+  { id: 10, title: 'War and Peace', author: 'Leo Tolstoy', price: 750, pages: 1225 }
 ];
 
 // Task 3: Initialize SQLite DB and Start Server

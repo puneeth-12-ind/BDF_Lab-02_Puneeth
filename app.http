@@ -12,10 +12,10 @@ POST http://localhost:3000/books/
 Content-Type: application/json
 
 {
-  "title": "Eloquent JavaScript",
-  "author": "Marijn Haverbeke",
-  "price": 550,
-  "pages": 472
+  "title": "Clean Code",
+  "author": "Robert C. Martin",
+  "price": 650,
+  "pages": 464
 }
 
 ### 5. PUT update existing book
@@ -23,10 +23,10 @@ PUT http://localhost:3000/books/1/
 Content-Type: application/json
 
 {
-  "title": "Clean Code: A Handbook of Agile Software Craftsmanship",
-  "author": "Robert C. Martin",
-  "price": 699,
-  "pages": 464
+  "title": "The Great Gatsby (Collector's Edition)",
+  "author": "F. Scott Fitzgerald",
+  "price": 599,
+  "pages": 195
 }
 
 ### 6. DELETE book by ID
