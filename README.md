@@ -4,8 +4,7 @@
 **Backend Development Fundamentals · Year II Term II · Aurora Deemed To Be University · Faculty: Sai Siva Teja**  
 
 - **GitHub Repository:** [https://github.com/puneeth-12-ind/BDF_Lab-02_Puneeth](https://github.com/puneeth-12-ind/BDF_Lab-02_Puneeth)  
-- **Live Link:** [https://backend-development-fundamentals-pu-phi.vercel.app](https://backend-development-fundamentals-pu-phi.vercel.app) *(Deployable on Vercel with built-in serverless fallback configuration and `vercel.json`)*
-
+- **Live Link:** [https://bdf-lab-02-puneeth-b7sp.vercel.app/](https://bdf-lab-02-puneeth-b7sp.vercel.app/) 
 ---
 
 ## Table of Contents
