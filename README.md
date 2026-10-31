@@ -3,29 +3,29 @@
 **K PUNEETH SAI · 252U1R1204 · CSE-2D, S19**  
 **Backend Development Fundamentals · Year II Term II · Aurora Deemed To Be University · Faculty: Sai Siva Teja**  
 
-- **GitHub Repository:** [https://github.com/puneeth-12-ind/BDF_Lab-02_Puneeth](https://github.com/puneeth-12-ind/BDF_Lab-02_Puneeth)
+- **GitHub Repository:** [https://github.com/puneeth-12-ind/BDF_Lab-02_Puneeth](https://github.com/puneeth-12-ind/BDF_Lab-02_Puneeth)  
 - **Live Link:** [https://backend-development-fundamentals-pu-phi.vercel.app](https://backend-development-fundamentals-pu-phi.vercel.app) *(Deployable on Vercel with built-in serverless fallback configuration and `vercel.json`)*
 
 ---
 
-##  Table of Contents
+## Table of Contents
 1. [Objective](#objective)
 2. [Project File Structure](#project-file-structure)
 3. [Database Schema & Initial Seed](#database-schema--initial-seed)
-4. [How to Run (Install, Environment Variables, Start Commands)](#how-to-run)
+4. [How to Run](#how-to-run)
 5. [Endpoints Table](#endpoints-table)
-6. [Screenshots of Working Endpoints](#screenshots-of-working-endpoints)
+6. [Screenshots of the 5 Working Endpoints](#screenshots-of-the-5-working-endpoints)
 7. [Viva Questions & Answers](#viva-questions--answers)
 8. [Notes: Problems Faced and How They Were Solved](#notes-problems-faced-and-how-they-were-solved)
 
 ---
 
-##  Objective
+## Objective
 Connect an Express.js web server to a persistent SQLite relational database (`books.db`) using the modern asynchronous `sqlite` wrapper and `sqlite3` driver. Expose five RESTful CRUD (Create, Read, Update, Delete) endpoints over HTTP using parameterized queries (`?` placeholders) to prevent SQL injection vulnerabilities.
 
 ---
 
-##  Project File Structure
+## Project File Structure
 
 ```text
 BDF_Lab-02_Puneeth/
@@ -40,19 +40,17 @@ BDF_Lab-02_Puneeth/
 ├── package-lock.json
 ├── README.md                          # Comprehensive lab report and documentation
 ├── vercel.json                        # Vercel serverless routing configuration
-└── screenshots/                       # Verified working output screenshots (laptop screen format)
+└── screenshots/                       # 5 working endpoint photos taken on localhost
     ├── 01_get_all_books.png
     ├── 02_get_single_book.png
     ├── 03_post_add_book.png
     ├── 04_put_update_book.png
-    ├── 05_delete_book.png
-    ├── 06_get_404_not_found.png
-    └── 07_sqlite_cli_view.png
+    └── 05_delete_book.png
 ```
 
 ---
 
-##  Database Schema & Initial Seed
+## Database Schema & Initial Seed
 
 ### Database Table Definition
 The database table `book` is created in SQLite with the following structure:
@@ -85,7 +83,7 @@ The database is pre-populated with 10 classic literary records:
 
 ---
 
-##  How to Run
+## How to Run
 
 ### 1. Prerequisites
 - **Node.js** (v18.x or later installed)
@@ -138,7 +136,7 @@ node init-db.js
 
 ---
 
-##  Endpoints Table
+## Endpoints Table
 
 | HTTP Method | Route Path | Expected Status Code | Description | Request Body / Parameters |
 |:---:|:---|:---:|:---|:---|
@@ -151,54 +149,65 @@ node init-db.js
 
 ---
 
-##  Screenshots of Working Endpoints
+## Screenshots of the 5 Working Endpoints
 
-*All screenshots below were captured from the laptop environment, showing the active Windows desktop, taskbar, system tray, and response headers.*
+*The five photos below show the responses obtained by running the server code on `http://localhost:3000/`.*
 
 ### 1. GET `/books/` — Retrieve All Books
-Retrieves all 10 initial books in JSON format with HTTP status `200 OK`.
+Retrieves all 10 books in JSON format from `http://localhost:3000/books/` with status code `200 OK`.
 ![GET All Books](screenshots/01_get_all_books.png)
 
 ---
 
 ### 2. GET `/books/:bookId/` — Retrieve Single Book
-Retrieves details for `bookId = 1` (*The Great Gatsby*) with HTTP status `200 OK`.
+Retrieves the record for `bookId = 1` (*The Great Gatsby*) from `http://localhost:3000/books/1/` with status code `200 OK`.
 ![GET Single Book](screenshots/02_get_single_book.png)
 
 ---
 
 ### 3. POST `/books/` — Add New Book
-Inserts a new book into `books.db` using parameterized queries and returns HTTP status `201 Created` with the newly generated `bookId: 11`.
+Inserts a new book into `books.db` on `http://localhost:3000/books/` using parameterized queries and returns status code `201 Created` with the newly assigned `bookId: 11`.
 ![POST Add Book](screenshots/03_post_add_book.png)
 
 ---
 
 ### 4. PUT `/books/:bookId/` — Update Book
-Modifies book details for `bookId = 1` using parameterized queries and returns HTTP status `200 OK`.
+Modifies book details for `bookId = 1` on `http://localhost:3000/books/1/` using parameterized queries and returns status code `200 OK` with message `'Book Updated Successfully'`.
 ![PUT Update Book](screenshots/04_put_update_book.png)
 
 ---
 
 ### 5. DELETE `/books/:bookId/` — Remove Book
-Deletes the newly inserted `bookId = 11` from the database and returns HTTP status `200 OK`.
+Deletes `bookId = 11` from the database on `http://localhost:3000/books/11/` and returns status code `200 OK` with message `'Book Deleted Successfully'`.
 ![DELETE Book](screenshots/05_delete_book.png)
 
 ---
 
-### 6. GET `/books/999/` — 404 Not Found Handling
-Demonstrates error handling when requesting a non-existent book ID, returning HTTP status `404 Not Found` with message `'Book Not Found'`.
-![GET 404 Not Found](screenshots/06_get_404_not_found.png)
+## Viva Questions & Answers
+
+### Q1. Why await the database call?
+> **Answer:** Database read and write operations are I/O-bound asynchronous processes. If we do not `await` the database operation, JavaScript continues synchronous execution immediately, passing an unresolved `Promise` rather than the retrieved data to the client. This results in empty responses, race conditions, or unhandled promise errors. `await` halts function execution until the database query resolves and returns the data.
+
+### Q2. What is SQL injection and how do placeholders prevent it?
+> **Answer:** SQL injection occurs when untrusted user input is directly concatenated into an SQL query string, allowing an attacker to inject arbitrary SQL statements (e.g., `' OR '1'='1' --`). Placeholders (`?`) prevent this because the query structure is pre-compiled by the database engine. The parameters are passed separately and treated strictly as literal data values, automatically escaping special characters.
+
+### Q3. When is PUT used instead of POST?
+> **Answer:**
+> - **POST** is used to create a new resource. It is **non-idempotent** (sending the same request repeatedly creates multiple independent records with new IDs).
+> - **PUT** is used to update or replace an existing resource at a known target URI (e.g., `/books/:bookId/`). It is **idempotent** (sending the exact same request multiple times leaves the server in the identical final state).
+
+### Q4. What is the difference between `db.all()`, `db.get()`, and `db.run()`?
+> **Answer:**
+> - `db.all()`: Executes a `SELECT` query and returns all matching rows as an array of objects.
+> - `db.get()`: Executes a `SELECT` query and returns only the first matching row as a single object (or `undefined` if none match).
+> - `db.run()`: Executes mutating statements (`INSERT`, `UPDATE`, `DELETE`) and returns execution metadata (e.g., `lastID`, `changes`).
+
+### Q5. Why is `initializeDBAndServer()` structured to start the Express server only after the DB connection succeeds?
+> **Answer:** If `app.listen()` begins accepting HTTP requests before the database connection is established, any incoming request would encounter a `null` database instance, causing the server process to crash. Encapsulating both inside `initializeDBAndServer()` ensures the server only accepts traffic once the database is fully open and ready.
 
 ---
 
-### 7. SQLite CLI & Database Verification
-Windows Command Prompt view verifying `sqlite3 books.db`, checking `.tables`, inspecting `.schema book`, and running `SELECT * FROM book;` to confirm persistent storage.
-![SQLite CLI Verification](screenshots/07_sqlite_cli_view.png)
-
----
-
-
-## 📝 Notes: Problems Faced and How They Were Solved
+## Notes: Problems Faced and How They Were Solved
 
 1. **Serverless & Native C++ Driver Compatibility:**
    - *Problem:* Compiling and executing native C++ SQLite binaries (`sqlite3.node`) can face platform restrictions in pure serverless runtimes (such as Vercel).
