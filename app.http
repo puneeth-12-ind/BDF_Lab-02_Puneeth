@@ -1,14 +1,17 @@
-### 1. Root route
-GET http://localhost:3000/
+### Live Vercel Deployment
+# Base URL: https://bdf-lab-02-puneeth-b7sp.vercel.app
 
-### 2. GET all books
-GET http://localhost:3000/books/
+### 1. Root route (Live)
+GET https://bdf-lab-02-puneeth-b7sp.vercel.app/
 
-### 3. GET single book by ID
-GET http://localhost:3000/books/1/
+### 2. GET all books (Live)
+GET https://bdf-lab-02-puneeth-b7sp.vercel.app/books/
 
-### 4. POST add a new book
-POST http://localhost:3000/books/
+### 3. GET single book by ID (Live)
+GET https://bdf-lab-02-puneeth-b7sp.vercel.app/books/1/
+
+### 4. POST add a new book (Live)
+POST https://bdf-lab-02-puneeth-b7sp.vercel.app/books/
 Content-Type: application/json
 
 {
@@ -18,8 +21,8 @@ Content-Type: application/json
   "pages": 464
 }
 
-### 5. PUT update existing book
-PUT http://localhost:3000/books/1/
+### 5. PUT update existing book (Live)
+PUT https://bdf-lab-02-puneeth-b7sp.vercel.app/books/1/
 Content-Type: application/json
 
 {
@@ -29,8 +32,22 @@ Content-Type: application/json
   "pages": 195
 }
 
-### 6. DELETE book by ID
-DELETE http://localhost:3000/books/11/
+### 6. DELETE book by ID (Live)
+DELETE https://bdf-lab-02-puneeth-b7sp.vercel.app/books/11/
 
-### 7. GET non-existent book (404 test)
-GET http://localhost:3000/books/999/
+### 7. GET non-existent book - 404 test (Live)
+GET https://bdf-lab-02-puneeth-b7sp.vercel.app/books/999/
+
+---
+
+### Local Development
+# Base URL: http://localhost:3000
+
+### 1. Root route (Local)
+GET http://localhost:3000/
+
+### 2. GET all books (Local)
+GET http://localhost:3000/books/
+
+### 3. GET single book by ID (Local)
+GET http://localhost:3000/books/1/
